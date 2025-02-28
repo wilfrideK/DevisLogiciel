@@ -298,17 +298,71 @@
       pointer-events: none;
       opacity: 0.8;
     }
-    .orange { background-color: #f39c12; color: #fff; border-radius: 6px; padding: 6px 10px; }
-    .blue { background-color: #3498db; color: #fff; border-radius: 6px; padding: 6px 10px; }
-    .green { background-color: #2ecc71; color: #fff; border-radius: 6px; padding: 6px 10px; }
-    .milestone {
-      background-color: #f1c40f;
-      color: #000;
-      font-weight: bold;
-      border-radius: 50%;
-      padding: 8px 12px;
+
+    /* Alternative pour mobile: Vue Liste */
+    .planning-mobile {
+      display: none;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .planning-mobile-header {
+      background-color: #3498db;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: 500;
+    }
+    
+    .planning-mobile-item {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      border-bottom: 1px solid #e9e9e9;
+      background-color: #f9f9f9;
+    }
+    
+    .planning-mobile-title {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    
+    .planning-mobile-title i {
+      margin-right: 10px;
+      color: #3498db;
+    }
+    
+    .planning-mobile-weeks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    
+    .planning-mobile-week {
       display: inline-block;
-      animation: pulse 2s infinite ease-in-out;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: white;
+      font-size: 0.9em;
+    }
+    
+    .planning-mobile-jalon {
+      background-color: #f1c40f;
+      color: black;
+      border-radius: 20px;
+      padding: 10px 15px;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 10px;
+      align-self: center;
+    }
+    
+    .planning-mobile-jalon i {
+      margin-right: 8px;
     }
 
     /* -------- INTERFACE MOCKUP -------- */
@@ -387,6 +441,75 @@
       animation: float 5s infinite ease-in-out;
     }
 
+    /* Interface mobile simplifiée */
+    .interface-mobile {
+      display: none;
+      border: 2px solid #3498db;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: auto;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      margin-bottom: 40px;
+    }
+    
+    .interface-mobile-header {
+      background: linear-gradient(to right, #3498db, #2980b9);
+      color: #fff;
+      padding: 15px;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    
+    .interface-mobile-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .interface-mobile-menu li {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e9e9e9;
+      display: flex;
+      align-items: center;
+    }
+    
+    .interface-mobile-menu li i {
+      margin-right: 10px;
+      color: #3498db;
+    }
+    
+    .interface-mobile-properties {
+      background-color: #f8f9fa;
+      padding: 15px;
+    }
+    
+    .interface-mobile-properties h3 {
+      margin-top: 0;
+      font-size: 1.1em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .interface-mobile-properties h3 i {
+      margin-right: 8px;
+      color: #3498db;
+    }
+    
+    .interface-mobile-properties p {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+    
+    .interface-mobile-properties p i {
+      margin-right: 8px;
+      color: #3498db;
+      width: 20px;
+    }
+
     /* -------- TABLEAU DE CHIFFRAGE -------- */
     .cost-table {
       width: 100%;
@@ -415,6 +538,66 @@
       background-color: #f1f8fe;
     }
 
+    /* Synthèse du chiffrage optimisée pour mobile */
+    .synthese-mobile {
+      display: none;
+    }
+    
+    .synthese-mobile-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .synthese-mobile-header i {
+      font-size: 2em;
+      margin-right: 15px;
+      color: #3498db;
+    }
+    
+    .synthese-mobile-header h2 {
+      margin: 0;
+    }
+    
+    .synthese-mobile-montant {
+      font-size: 1.2em;
+      color: #2ecc71;
+      font-weight: bold;
+    }
+    
+    .synthese-mobile-options {
+      margin-top: 20px;
+    }
+    
+    .synthese-mobile-option {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .synthese-mobile-option i {
+      font-size: 1.5em;
+      margin-right: 15px;
+      color: #3498db;
+    }
+    
+    .synthese-mobile-option-content {
+      flex: 1;
+    }
+    
+    .synthese-mobile-option-content p {
+      margin: 5px 0;
+    }
+    
+    .synthese-mobile-option-montant {
+      font-weight: bold;
+      color: #2ecc71;
+    }
+
     /* -------- FOOTER -------- */
     footer {
       text-align: center;
@@ -427,22 +610,91 @@
 
     /* -------- RESPONSIVE ADJUSTMENTS -------- */
     @media (max-width: 768px) {
-      header h1 { font-size: 2em; }
-      .workflow { flex-direction: column; }
-      .workflow-arrow { transform: rotate(90deg); margin: 10px 0; }
-      .interface-mockup { transform: scale(1); width: 100%; }
-      .mockup-content { flex-direction: column; height: auto; }
-      .mockup-sidebar, .mockup-properties { width: 100%; }
-      .mockup-main { border-left: none; border-right: none; }
-      table { display: block; overflow-x: auto; }
-      .cost-table { display: block; overflow-x: auto; }
+      /* Réduire les espaces et la taille du texte */
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 15px;
+        border-radius: 8px;
+      }
+      header {
+        padding: 40px 15px 60px 15px;
+      }
+      header h1 { 
+        font-size: 2em; 
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      .section {
+        margin-bottom: 30px;
+      }
+      .section-icon {
+        font-size: 1.5em;
+      }
+      
+      /* Réorganiser le workflow */
+      .workflow { 
+        flex-direction: column; 
+      }
+      .workflow-step {
+        width: 80%;
+        margin: 5px auto;
+      }
+      .workflow-arrow { 
+        transform: rotate(90deg); 
+        margin: 10px 0; 
+      }
+      
+      /* Ajustements mockup */
+      .interface-mockup { 
+        display: none;
+      }
+      .interface-mobile {
+        display: block;
+      }
+      
+      /* Tableaux défilants */
+      .planning-container, table { 
+        display: block; 
+        overflow-x: auto; 
+      }
+      .cost-table { 
+        display: block; 
+        overflow-x: auto; 
+      }
+      
+      /* Optimisation synthèse du chiffrage */
+      .section.chiffrage-desktop {
+        display: none;
+      }
+      .synthese-mobile {
+        display: block;
+      }
     }
     
     @media (max-width: 576px) {
-      .planning-container {
-        border-radius: 5px;
+      /* Ajustements très petits écrans */
+      h1 {
+        font-size: 1.8em;
+      }
+      h2 {
+        font-size: 1.3em;
+      }
+      .phase-block {
+        padding: 15px;
       }
       
+      /* Cacher le planning table et montrer la vue mobile */
+      .planning-container {
+        display: none;
+      }
+      .planning-mobile {
+        display: block;
+      }
+      
+      /* Ajustements pour le tableau planning */
       .planning-table td:first-child,
       .planning-table th:first-child {
         min-width: 140px;
@@ -452,6 +704,11 @@
         min-width: 40px;
         padding: 8px 3px;
         font-size: 0.9em;
+      }
+      
+      /* Orientation workflow */
+      .workflow-step {
+        width: 90%;
       }
     }
   </style>
@@ -535,9 +792,10 @@
     <section class="section" id="interfaceType">
       <h2><i class="fas fa-window-maximize section-icon"></i> Interface Type</h2>
       <p>
-        Voici une maquette illustrant à quoi pourrait ressembler le logiciel à l'échelle 8/10. L'interface type présente une barre latérale pour les outils,
-        une zone principale affichant une vue 2D de la semelle et un panneau de propriétés pour ajuster les paramètres à titre d'ex.
+        Voici une maquette illustrant à quoi pourrait ressembler le logiciel. L'interface présente une barre latérale pour les outils,
+        une zone principale affichant une vue 2D de la semelle et un panneau de propriétés pour ajuster les paramètres.
       </p>
+      <!-- Version desktop de l'interface -->
       <div class="interface-mockup">
         <div class="mockup-header">Semelle 3D - Interface</div>
         <div class="mockup-content">
@@ -564,11 +822,31 @@
           </div>
         </div>
       </div>
+      
+      <!-- Version mobile de l'interface -->
+      <div class="interface-mobile">
+        <div class="interface-mobile-header">Semelle 3D - Interface</div>
+        <ul class="interface-mobile-menu">
+          <li><i class="fas fa-file-import"></i> Importer Empreinte</li>
+          <li><i class="fas fa-sliders-h"></i> Ajuster Paramètres</li>
+          <li><i class="fas fa-eye"></i> Prévisualiser 2D</li>
+          <li><i class="fas fa-cube"></i> Générer 3D</li>
+          <li><i class="fas fa-print"></i> Impression 3D</li>
+        </ul>
+        <div class="interface-mobile-properties">
+          <h3><i class="fas fa-cog"></i> Propriétés</h3>
+          <p><i class="fas fa-search"></i> Échelle : 100%</p>
+          <p><i class="fas fa-ruler-combined"></i> Dimensions : 210x100 mm</p>
+          <p><i class="fas fa-layer-group"></i> Matériau : ABS/TPU</p>
+        </div>
+      </div>
     </section>
 
     <!-- Planning prévisionnel des activités -->
     <section class="section">
       <h2><i class="far fa-calendar-alt section-icon"></i> Planning prévisionnel des activités</h2>
+      
+      <!-- Version desktop du planning (tableau) -->
       <div class="planning-container">
         <table class="planning-table">
           <thead>
@@ -597,99 +875,200 @@
               <th>S21</th>
             </tr>
           </thead>
-        <tbody>
-          <tr>
-            <td class="task-label"><i class="fas fa-lightbulb"></i> Kick-off & Analyse</td>
-            <td class="orange">K</td>
-            <td class="orange">A</td>
-            <td class="orange">A</td>
-            <td class="orange">A</td>
-            <td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-sitemap"></i> Conception de l'Architecture</td>
-            <td></td><td></td><td></td><td></td>
-            <td class="blue">C</td>
-            <td class="blue">C</td>
-            <td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-image"></i> Module Traitement d'Image</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td class="blue">TI</td>
-            <td class="blue">TI</td>
-            <td class="blue">TI</td>
-            <td class="blue">TI</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-desktop"></i> Interface 2D Interactive</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td>
-            <td class="blue">I2D</td>
-            <td class="blue">I2D</td>
-            <td class="blue">I2D</td>
-            <td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-cubes"></i> Génération & Export 3D</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td>
-            <td class="green">G3D</td>
-            <td class="green">G3D</td>
-            <td class="green">G3D</td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-print"></i> Module Impression 3D</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td>
-            <td class="orange">IMP</td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-microscope"></i> Tests & Validation</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td>
-            <td class="orange">T</td>
-            <td class="orange">T</td>
-            <td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-tachometer-alt"></i> Optimisation & Automatisation</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td class="blue">OPT</td>
-            <td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-book-open"></i> Documentation & Déploiement</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td class="blue">DEP</td>
-          </tr>
-          <tr>
-            <td class="task-label"><i class="fas fa-flag-checkered"></i> Jalons de déblocage des fonds</td>
-            <td class="milestone">🚀<br>5K</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td><td></td><td></td>
-            <td class="milestone">🏆<br>MVP</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+          <tbody>
+            <tr>
+              <td class="task-label"><i class="fas fa-lightbulb"></i> Kick-off & Analyse</td>
+              <td class="orange">K</td>
+              <td class="orange">A</td>
+              <td class="orange">A</td>
+              <td class="orange">A</td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-sitemap"></i> Conception de l'Architecture</td>
+              <td></td><td></td><td></td><td></td>
+              <td class="blue">C</td>
+              <td class="blue">C</td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-image"></i> Module Traitement d'Image</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td class="blue">TI</td>
+              <td class="blue">TI</td>
+              <td class="blue">TI</td>
+              <td class="blue">TI</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-desktop"></i> Interface 2D Interactive</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+              <td class="blue">I2D</td>
+              <td class="blue">I2D</td>
+              <td class="blue">I2D</td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-cubes"></i> Génération & Export 3D</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td>
+              <td class="green">G3D</td>
+              <td class="green">G3D</td>
+              <td class="green">G3D</td>
+              <td></td><td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-print"></i> Module Impression 3D</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+              <td class="orange">IMP</td>
+              <td></td><td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-microscope"></i> Tests & Validation</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td>
+              <td class="orange">T</td>
+              <td class="orange">T</td>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-tachometer-alt"></i> Optimisation & Automatisation</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td class="blue">OPT</td>
+              <td></td><td></td><td></td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-book-open"></i> Documentation & Déploiement</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td class="blue">DEP</td>
+            </tr>
+            <tr>
+              <td class="task-label"><i class="fas fa-flag-checkered"></i> Jalons de déblocage des fonds</td>
+              <td class="milestone">🚀<br>5K</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td><td></td>
+              <td></td><td></td><td></td><td></td><td></td>
+              <td class="milestone">🏆<br>MVP</td>
+              <td></td><td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      
+      <!-- Version mobile du planning (vue liste) -->
+      <div class="planning-mobile">
+        <div class="planning-mobile-header">Planning sur 21 semaines</div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-lightbulb"></i> Kick-off & Analyse
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week orange">S1 (K)</span>
+            <span class="planning-mobile-week orange">S2 (A)</span>
+            <span class="planning-mobile-week orange">S3 (A)</span>
+            <span class="planning-mobile-week orange">S4 (A)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-sitemap"></i> Conception de l'Architecture
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week blue">S5 (C)</span>
+            <span class="planning-mobile-week blue">S6 (C)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-image"></i> Module Traitement d'Image
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week blue">S7 (TI)</span>
+            <span class="planning-mobile-week blue">S8 (TI)</span>
+            <span class="planning-mobile-week blue">S9 (TI)</span>
+            <span class="planning-mobile-week blue">S10 (TI)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-desktop"></i> Interface 2D Interactive
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week blue">S11 (I2D)</span>
+            <span class="planning-mobile-week blue">S12 (I2D)</span>
+            <span class="planning-mobile-week blue">S13 (I2D)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-cubes"></i> Génération & Export 3D
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week green">S14 (G3D)</span>
+            <span class="planning-mobile-week green">S15 (G3D)</span>
+            <span class="planning-mobile-week green">S16 (G3D)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-print"></i> Module Impression 3D
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week orange">S17 (IMP)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-microscope"></i> Tests & Validation
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week orange">S17 (T)</span>
+            <span class="planning-mobile-week orange">S18 (T)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-tachometer-alt"></i> Optimisation & Automatisation
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week blue">S18 (OPT)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-book-open"></i> Documentation & Déploiement
+          </div>
+          <div class="planning-mobile-weeks">
+            <span class="planning-mobile-week blue">S21 (DEP)</span>
+          </div>
+        </div>
+        <div class="planning-mobile-item">
+          <div class="planning-mobile-title">
+            <i class="fas fa-flag-checkered"></i> Jalons de déblocage des fonds
+          </div>
+          <div class="planning-mobile-jalon">
+            <i class="fas fa-rocket"></i> S1 : 5K €
+          </div>
+          <div class="planning-mobile-jalon">
+            <i class="fas fa-trophy"></i> S19 : MVP
+          </div>
+        </div>
+      </div>
+      
       <p>
         Le planning ci-dessus répartit les activités sur 21 semaines, avec deux jalons financiers indiqués par des icônes.
       </p>
@@ -764,8 +1143,8 @@
       </table>
     </section>
 
-    <!-- Synthèse du Chiffrage -->
-    <section class="section">
+    <!-- Synthèse du Chiffrage (desktop) -->
+    <section class="section chiffrage-desktop">
       <h2><i class="fas fa-chart-pie section-icon"></i> Synthèse du Chiffrage</h2>
       <p>
         Pour engager le projet, un versement initial de <strong>5 000 €</strong> est requis.
@@ -787,6 +1166,44 @@
         <i class="fas fa-tools" style="color: #9b59b6; margin-right: 10px;"></i>
         Dans les deux cas, un contrat de maintenance accompagne ce contrat pour garantir la stabilité du logiciel.
       </p>
+    </section>
+    
+    <!-- Synthèse du Chiffrage (mobile) -->
+    <section class="synthese-mobile">
+      <div class="synthese-mobile-header">
+        <i class="fas fa-chart-pie"></i>
+        <h2>Synthèse du Chiffrage</h2>
+      </div>
+      
+      <p>
+        Pour engager le projet, un versement initial de <span class="synthese-mobile-montant">5 000 €</span> est requis.
+      </p>
+      
+      <p>Deux options de paiement ensuite:</p>
+      
+      <div class="synthese-mobile-options">
+        <div class="synthese-mobile-option">
+          <i class="fas fa-hand-holding-usd"></i>
+          <div class="synthese-mobile-option-content">
+            <p>Paiement intégral de <span class="synthese-mobile-option-montant">30 000 €</span> à la fin du développement</p>
+            <p>avec un déblocage de <span class="synthese-mobile-option-montant">10 000 €</span> à la livraison du MVP</p>
+          </div>
+        </div>
+        
+        <div class="synthese-mobile-option">
+          <i class="fas fa-sync-alt"></i>
+          <div class="synthese-mobile-option-content">
+            <p>Dès le lancement du MVP, un engagement à verser une licence mensuelle de <span class="synthese-mobile-option-montant">500 €</span> pendant 5 ans</p>
+          </div>
+        </div>
+        
+        <div class="synthese-mobile-option">
+          <i class="fas fa-tools"></i>
+          <div class="synthese-mobile-option-content">
+            <p>Dans les deux cas, un contrat de maintenance accompagne ce contrat pour garantir la stabilité du logiciel.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
   <footer>
