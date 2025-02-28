@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Devis – Projet d'automatisation de la fabrication de Semelle3D - by Zpey</title>
-  <!-- Icônes (Font Awesome) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Icônes (Font Awesome) - Mise à jour vers la dernière version -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Police Roboto -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
   <style>
     /* Global Styles */
     body {
@@ -22,8 +22,32 @@
       margin: auto;
       background: #fff;
       padding: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+
+    /* Animations globales */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Icônes avec animations */
+    .section-icon {
+      font-size: 1.8em;
+      margin-right: 10px;
+      background: linear-gradient(135deg, #8e44ad, #3498db);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 2s infinite ease-in-out;
+      vertical-align: middle;
     }
 
     /* ---------- HEADINGS ---------- */
@@ -45,6 +69,8 @@
       background: linear-gradient(90deg, #2980b9, #f39c12);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
     }
     h3 {
       color: #2980b9;
@@ -56,11 +82,15 @@
     }
     .section {
       margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+    .section:hover {
+      transform: translateY(-5px);
     }
 
     /* ---------- STRONG & EM ---------- */
     strong {
-      color: #16a085; /* Teal au lieu du rouge */
+      color: #16a085;
       font-weight: 600;
     }
     em {
@@ -71,12 +101,12 @@
     /* -------- HEADER STYLES -------- */
     header {
       position: relative;
-      background: #fff;
+      background: linear-gradient(135deg, #ffffff, #f5f7fa);
       padding: 60px 20px 80px 20px;
       text-align: center;
-      border-radius: 8px;
+      border-radius: 12px;
       margin-bottom: 40px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       overflow: hidden;
     }
     .decor-shape1, .decor-shape2 {
@@ -91,6 +121,7 @@
       height: 200px;
       top: -50px;
       left: -50px;
+      animation: pulse 8s infinite ease-in-out;
     }
     .decor-shape2 {
       background-color: #e74c3c;
@@ -98,6 +129,7 @@
       height: 150px;
       bottom: -30px;
       right: -30px;
+      animation: pulse 10s infinite ease-in-out;
     }
     .header-content {
       position: relative;
@@ -115,40 +147,41 @@
       justify-content: center;
       align-items: center;
       margin-top: 30px;
+      flex-wrap: wrap;
     }
     .workflow-step {
       display: flex;
       align-items: center;
-      background-color: #fff;
-      padding: 12px 20px;
-      margin: 0 10px;
-      border-radius: 6px;
+      background: linear-gradient(135deg, #ffffff, #f5f7fa);
+      padding: 15px 25px;
+      margin: 10px;
+      border-radius: 12px;
       font-weight: 500;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       opacity: 0;
       animation: fadeIn 1s forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .workflow-step i {
-      margin-right: 8px;
-      font-size: 1.2em;
+    .workflow-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    }
+    .workflow-step i, .workflow-step svg {
+      margin-right: 12px;
+      font-size: 1.4em;
+      animation: float 3s infinite ease-in-out;
     }
     /* Couleurs personnalisées sur les icônes du workflow */
-    .empreinte i { color: #2980b9; }
+    .empreinte i { color: #3498db; }
     .analyse i { color: #f39c12; }
-    .modele i { color: #27ae60; }
-    .printer3d-icon {
-      width: 1.2em; 
-      height: 1.2em; 
-      vertical-align: middle; 
-      margin-right: 8px; 
-      fill: #8e44ad;
-    }
+    .modele i { color: #2ecc71; }
+    .print i { color: #9b59b6; }
     .workflow-arrow {
-      font-size: 1.5em;
-      color: #2980b9;
+      font-size: 1.8em;
+      color: #3498db;
       margin: 0 5px;
       opacity: 0;
-      animation: fadeIn 1s forwards;
+      animation: fadeIn 1s forwards, float 3s infinite ease-in-out;
     }
     .workflow-step:nth-child(1) { animation-delay: 0.5s; }
     .workflow-arrow:nth-child(2) { animation-delay: 1s; }
@@ -161,15 +194,23 @@
 
     /* -------- BANDEAUX POUR LES PHASES -------- */
     .phase-block {
-      margin-bottom: 15px;
-      background: #fdfefe; /* Couleur de fond clair */
-      border-left: 6px solid #2980b9; /* Barre colorée à gauche */
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #f9f9f9, #ffffff);
+      border-left: 6px solid #3498db;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .phase-block:hover {
+      transform: translateX(5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
     .phase-block i {
-      margin-right: 8px;
+      margin-right: 12px;
+      font-size: 1.3em;
+      animation: float 3s infinite ease-in-out;
+      vertical-align: middle;
     }
 
     /* -------- TABLEAU GANTT -------- */
@@ -177,50 +218,119 @@
       width: 100%;
       border-spacing: 0;
       margin-bottom: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     th, td {
-      padding: 8px;
+      padding: 12px;
       text-align: center;
     }
     th {
-      background-color: #e9e9e9;
+      background-color: #3498db;
+      color: white;
       font-weight: 500;
     }
     .task-label {
       text-align: left;
       font-weight: 500;
-      background-color: #f9f9f9;
-      padding: 10px;
+      background-color: #f1f8fe;
+      padding: 15px;
       min-width: 200px;
     }
-    .orange { background-color: #FFA500; color: #fff; border-radius: 4px; padding: 4px 8px; }
-    .blue { background-color: #5DADE2; color: #fff; border-radius: 4px; padding: 4px 8px; }
-    .green { background-color: #58D68D; color: #fff; border-radius: 4px; padding: 4px 8px; }
+
+    /* Corrections pour le planning qui dépasse */
+    .planning-container {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 30px;
+      -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      position: relative;
+    }
+    
+    .planning-table {
+      width: max-content; /* Utiliser la largeur nécessaire */
+      min-width: 100%; /* Utiliser au moins 100% de la largeur disponible */
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    
+    .planning-table th {
+      min-width: 50px; /* Largeur minimale pour les colonnes de semaines */
+      padding: 10px 5px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    
+    .planning-table td:first-child,
+    .planning-table th:first-child {
+      position: sticky;
+      left: 0;
+      background-color: #f1f8fe;
+      z-index: 2;
+      min-width: 180px;
+      max-width: 250px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    
+    .planning-table thead th {
+      position: sticky;
+      top: 0;
+      background-color: #3498db;
+      color: white;
+      z-index: 3;
+    }
+    
+    .planning-table thead th:first-child {
+      z-index: 4;
+    }
+    
+    .planning-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 20px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.7));
+      pointer-events: none;
+      opacity: 0.8;
+    }
+    .orange { background-color: #f39c12; color: #fff; border-radius: 6px; padding: 6px 10px; }
+    .blue { background-color: #3498db; color: #fff; border-radius: 6px; padding: 6px 10px; }
+    .green { background-color: #2ecc71; color: #fff; border-radius: 6px; padding: 6px 10px; }
     .milestone {
-      background-color: #FFD700;
+      background-color: #f1c40f;
       color: #000;
       font-weight: bold;
       border-radius: 50%;
-      padding: 6px 10px;
+      padding: 8px 12px;
       display: inline-block;
+      animation: pulse 2s infinite ease-in-out;
     }
 
-    /* -------- INTERFACE MOCKUP (SCALE 8/10) -------- */
+    /* -------- INTERFACE MOCKUP -------- */
     .interface-mockup {
-      border: 2px solid #5DADE2;
-      border-radius: 8px;
+      border: 2px solid #3498db;
+      border-radius: 12px;
       overflow: hidden;
       max-width: 800px;
       margin: auto;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transform: scale(0.8);
-      transform-origin: top left;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      transform: scale(0.9);
+      transform-origin: top center;
       margin-bottom: 40px;
+      transition: transform 0.3s ease;
+    }
+    .interface-mockup:hover {
+      transform: scale(0.95);
     }
     .mockup-header {
-      background: #2E86C1;
+      background: linear-gradient(to right, #3498db, #2980b9);
       color: #fff;
-      padding: 10px;
+      padding: 15px;
       font-size: 1.2em;
       text-align: center;
     }
@@ -229,9 +339,9 @@
       height: 400px;
     }
     .mockup-sidebar {
-      background: #f0f0f0;
+      background: #f8f9fa;
       width: 150px;
-      padding: 10px;
+      padding: 15px;
     }
     .mockup-sidebar ul {
       list-style: none;
@@ -239,25 +349,29 @@
       margin: 0;
     }
     .mockup-sidebar ul li {
-      padding: 8px 0;
+      padding: 10px 0;
       border-bottom: 1px solid #ddd;
       font-size: 0.9em;
       color: #333;
+      transition: color 0.3s ease;
+    }
+    .mockup-sidebar ul li:hover {
+      color: #3498db;
     }
     .mockup-main {
       flex: 1;
       background: #fff;
-      padding: 10px;
+      padding: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-left: 1px solid #ddd;
-      border-right: 1px solid #ddd;
+      border-left: 1px solid #e1e1e1;
+      border-right: 1px solid #e1e1e1;
     }
     .mockup-properties {
-      background: #f9f9f9;
+      background: #f8f9fa;
       width: 200px;
-      padding: 10px;
+      padding: 15px;
       font-size: 0.9em;
       color: #333;
     }
@@ -265,11 +379,12 @@
       margin-top: 0;
       font-size: 1em;
       border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
-      margin-bottom: 10px;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
     }
     .semelle-svg {
       max-width: 300px;
+      animation: float 5s infinite ease-in-out;
     }
 
     /* -------- TABLEAU DE CHIFFRAGE -------- */
@@ -277,27 +392,33 @@
       width: 100%;
       border-spacing: 0;
       margin-top: 20px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
+      border: none;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
     }
     .cost-table th, .cost-table td {
-      padding: 12px 15px;
+      padding: 15px 20px;
       text-align: left;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #e9e9e9;
     }
     .cost-table thead th {
-      background-color: #e9e9e9;
+      background: linear-gradient(to right, #3498db, #2980b9);
+      color: white;
       font-weight: 500;
+    }
+    .cost-table tbody tr:hover {
+      background-color: #f5f9ff;
     }
     .cost-table tfoot td {
       font-weight: 700;
+      background-color: #f1f8fe;
     }
 
     /* -------- FOOTER -------- */
     footer {
       text-align: center;
-      padding: 10px 0;
+      padding: 20px 0;
       margin-top: 40px;
       font-size: 0.9em;
       color: #666;
@@ -308,10 +429,30 @@
     @media (max-width: 768px) {
       header h1 { font-size: 2em; }
       .workflow { flex-direction: column; }
-      .interface-mockup { transform: scale(0.95); }
+      .workflow-arrow { transform: rotate(90deg); margin: 10px 0; }
+      .interface-mockup { transform: scale(1); width: 100%; }
       .mockup-content { flex-direction: column; height: auto; }
       .mockup-sidebar, .mockup-properties { width: 100%; }
       .mockup-main { border-left: none; border-right: none; }
+      table { display: block; overflow-x: auto; }
+      .cost-table { display: block; overflow-x: auto; }
+    }
+    
+    @media (max-width: 576px) {
+      .planning-container {
+        border-radius: 5px;
+      }
+      
+      .planning-table td:first-child,
+      .planning-table th:first-child {
+        min-width: 140px;
+      }
+      
+      .planning-table th {
+        min-width: 40px;
+        padding: 8px 3px;
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
@@ -325,8 +466,8 @@
         <h1>Devis N°2025-02-SS</h1>
         <h1>Automatisation du processus de fabrication de Semelles</h1>
         <p>Finalité – Rééducation post-opératoire</p>
-	<p>Zpey</p>
-        <!-- Workflow Steps avec icônes colorées -->
+        <p>Zpey</p>
+        <!-- Workflow Steps avec icônes colorées et animées -->
         <div class="workflow">
           <div class="workflow-step empreinte">
             <i class="fas fa-shoe-prints"></i>
@@ -334,19 +475,17 @@
           </div>
           <div class="workflow-arrow">→</div>
           <div class="workflow-step analyse">
-            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-chart-bar"></i>
             <span>Analyse 2D</span>
           </div>
           <div class="workflow-arrow">→</div>
           <div class="workflow-step modele">
-            <i class="fas fa-cube"></i>
+            <i class="fas fa-cubes"></i>
             <span>Modélisation 3D</span>
           </div>
           <div class="workflow-arrow">→</div>
           <div class="workflow-step print">
-            <svg class="printer3d-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 7h20v11H2V7zm2 2v7h16V9H4zm4 9h8v2H8v-2z"/>
-            </svg>
+            <i class="fas fa-print"></i>
             <span>Impression 3D</span>
           </div>
         </div>
@@ -355,46 +494,46 @@
 
     <!-- Présentation du Projet -->
     <section class="section">
-      <h2><i class="fas fa-rocket"></i> Présentation du Projet</h2>
+      <h2><i class="fas fa-rocket section-icon"></i> Présentation du Projet</h2>
       <p>
         Ce projet consiste à développer un logiciel sur bureau ou serveur qui automatise la création de semelles.
-        L'application traitera l’image d’une empreinte podologique, permettra aux experts d’ajuster les paramètres via une interface 2D,
-        générera des fichiers 3D pour l’impression et lancera ensuite le processus d’impression.
+        L'application traitera l'image d'une empreinte podologique, permettra aux experts d'ajuster les paramètres via une interface 2D,
+        générera des fichiers 3D pour l'impression et lancera ensuite le processus d'impression.
       </p>
     </section>
 
     <!-- Présentation et Explication du Devis -->
     <section class="section">
-      <h2><i class="fas fa-file-alt"></i> Présentation et Explication du Devis</h2>
+      <h2><i class="fas fa-file-invoice section-icon"></i> Présentation et Explication du Devis</h2>
       <div class="phase-block">
-        <strong><i class="fas fa-brain"></i> Kick-off & Analyse :</strong> Lancement du projet, brainstorming et recueil des besoins pour rédiger un cahier des charges précis.
-        <br><em>Technologies :</em> Zoom, Trello,Google Docs.
+        <strong><i class="fas fa-lightbulb"></i> Kick-off & Analyse :</strong> Lancement du projet, brainstorming et recueil des besoins pour rédiger un cahier des charges précis.
+        <br><em>Technologies :</em> Zoom, Trello, Google Docs.
       </div>
       <div class="phase-block">
-        <strong><i class="fas fa-pencil-alt"></i> Conception de l'Architecture :</strong> Élaboration des modules clés et conception de l’architecture logicielle.
+        <strong><i class="fas fa-sitemap"></i> Conception de l'Architecture :</strong> Élaboration des modules clés et conception de l'architecture logicielle.
         <br><em>Technologies :</em> Lucidchart, Draw.io, UML.
       </div>
       <div class="phase-block">
-        <strong><i class="fas fa-code"></i> Développement :</strong> Création des modules de traitement d'image, interface 2D, génération & export 3D et intégration de l'impression 3D.
+        <strong><i class="fas fa-laptop-code"></i> Développement :</strong> Création des modules de traitement d'image, interface 2D, génération & export 3D et intégration de l'impression 3D.
         <br><em>Technologies :</em> Python, OpenCV, TensorFlow, PyQt5, React, API FreeCAD, SolidWorks API, OctoPrint.
       </div>
       <div class="phase-block">
-        <strong><i class="fas fa-vial"></i> Tests & Validation :</strong> Validation des prototypes et ajustements en fonction des retours.
+        <strong><i class="fas fa-microscope"></i> Tests & Validation :</strong> Validation des prototypes et ajustements en fonction des retours.
         <br><em>Technologies :</em> Scripts de tests Python, outils de simulation.
       </div>
       <div class="phase-block">
-        <strong><i class="fas fa-cogs"></i> Optimisation & Automatisation :</strong> Amélioration des performances et automatisation pour réduire les interventions manuelles.
+        <strong><i class="fas fa-tachometer-alt"></i> Optimisation & Automatisation :</strong> Amélioration des performances et automatisation pour réduire les interventions manuelles.
         <br><em>Technologies :</em> GitLab CI, Jenkins, scripts d'automatisation.
       </div>
       <div class="phase-block">
-        <strong><i class="fas fa-book"></i> Documentation & Déploiement :</strong> Rédaction de la documentation et déploiement avec formation des équipes.
+        <strong><i class="fas fa-book-open"></i> Documentation & Déploiement :</strong> Rédaction de la documentation et déploiement avec formation des équipes.
         <br><em>Technologies :</em> Git, Docker.
       </div>
     </section>
 
     <!-- Interface Type -->
     <section class="section" id="interfaceType">
-      <h2><i class="fas fa-desktop"></i> Interface Type</h2>
+      <h2><i class="fas fa-window-maximize section-icon"></i> Interface Type</h2>
       <p>
         Voici une maquette illustrant à quoi pourrait ressembler le logiciel à l'échelle 8/10. L'interface type présente une barre latérale pour les outils,
         une zone principale affichant une vue 2D de la semelle et un panneau de propriétés pour ajuster les paramètres à titre d'ex.
@@ -404,24 +543,24 @@
         <div class="mockup-content">
           <div class="mockup-sidebar">
             <ul>
-              <li>Importer Empreinte</li>
-              <li>Ajuster Paramètres</li>
-              <li>Prévisualiser 2D</li>
-              <li>Générer 3D</li>
-              <li>Impression 3D</li>
+              <li><i class="fas fa-file-import"></i> Importer Empreinte</li>
+              <li><i class="fas fa-sliders-h"></i> Ajuster Paramètres</li>
+              <li><i class="fas fa-eye"></i> Prévisualiser 2D</li>
+              <li><i class="fas fa-cube"></i> Générer 3D</li>
+              <li><i class="fas fa-print"></i> Impression 3D</li>
             </ul>
           </div>
           <div class="mockup-main">
             <!-- Vue 2D d'une semelle en SVG -->
             <svg class="semelle-svg" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10,50 Q20,10 80,10 L140,10 Q190,10 190,50 Q190,90 140,90 L80,90 Q20,90 10,50 Z" fill="#58D68D" stroke="#2E86C1" stroke-width="2"/>
+              <path d="M10,50 Q20,10 80,10 L140,10 Q190,10 190,50 Q190,90 140,90 L80,90 Q20,90 10,50 Z" fill="#2ecc71" stroke="#3498db" stroke-width="2"/>
             </svg>
           </div>
           <div class="mockup-properties">
-            <h3>Propriétés</h3>
-            <p>Échelle : 100%</p>
-            <p>Dimensions : 210x100 mm</p>
-            <p>Matériau : ABS/TPU</p>
+            <h3><i class="fas fa-cog"></i> Propriétés</h3>
+            <p><i class="fas fa-search"></i> Échelle : 100%</p>
+            <p><i class="fas fa-ruler-combined"></i> Dimensions : 210x100 mm</p>
+            <p><i class="fas fa-layer-group"></i> Matériau : ABS/TPU</p>
           </div>
         </div>
       </div>
@@ -429,37 +568,38 @@
 
     <!-- Planning prévisionnel des activités -->
     <section class="section">
-      <h2><i class="fas fa-calendar-alt"></i> Planning prévisionnel des activités</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Activités</th>
-            <th>S1</th>
-            <th>S2</th>
-            <th>S3</th>
-            <th>S4</th>
-            <th>S5</th>
-            <th>S6</th>
-            <th>S7</th>
-            <th>S8</th>
-            <th>S9</th>
-            <th>S10</th>
-            <th>S11</th>
-            <th>S12</th>
-            <th>S13</th>
-            <th>S14</th>
-            <th>S15</th>
-            <th>S16</th>
-            <th>S17</th>
-            <th>S18</th>
-            <th>S19</th>
-            <th>S20</th>
-            <th>S21</th>
-          </tr>
-        </thead>
+      <h2><i class="far fa-calendar-alt section-icon"></i> Planning prévisionnel des activités</h2>
+      <div class="planning-container">
+        <table class="planning-table">
+          <thead>
+            <tr>
+              <th>Activités</th>
+              <th>S1</th>
+              <th>S2</th>
+              <th>S3</th>
+              <th>S4</th>
+              <th>S5</th>
+              <th>S6</th>
+              <th>S7</th>
+              <th>S8</th>
+              <th>S9</th>
+              <th>S10</th>
+              <th>S11</th>
+              <th>S12</th>
+              <th>S13</th>
+              <th>S14</th>
+              <th>S15</th>
+              <th>S16</th>
+              <th>S17</th>
+              <th>S18</th>
+              <th>S19</th>
+              <th>S20</th>
+              <th>S21</th>
+            </tr>
+          </thead>
         <tbody>
           <tr>
-            <td class="task-label">Kick-off & Analyse</td>
+            <td class="task-label"><i class="fas fa-lightbulb"></i> Kick-off & Analyse</td>
             <td class="orange">K</td>
             <td class="orange">A</td>
             <td class="orange">A</td>
@@ -469,7 +609,7 @@
             <td></td><td></td><td></td><td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Conception de l'Architecture</td>
+            <td class="task-label"><i class="fas fa-sitemap"></i> Conception de l'Architecture</td>
             <td></td><td></td><td></td><td></td>
             <td class="blue">C</td>
             <td class="blue">C</td>
@@ -478,7 +618,7 @@
             <td></td><td></td><td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Module Traitement d'Image</td>
+            <td class="task-label"><i class="fas fa-image"></i> Module Traitement d'Image</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td class="blue">TI</td>
             <td class="blue">TI</td>
@@ -488,7 +628,7 @@
             <td></td><td></td><td></td><td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Interface 2D Interactive</td>
+            <td class="task-label"><i class="fas fa-desktop"></i> Interface 2D Interactive</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td>
             <td class="blue">I2D</td>
@@ -498,7 +638,7 @@
             <td></td><td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Génération & Export 3D</td>
+            <td class="task-label"><i class="fas fa-cubes"></i> Génération & Export 3D</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td>
@@ -508,7 +648,7 @@
             <td></td><td></td><td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Module Impression 3D</td>
+            <td class="task-label"><i class="fas fa-print"></i> Module Impression 3D</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td>
@@ -516,7 +656,7 @@
             <td></td><td></td><td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Tests & Validation</td>
+            <td class="task-label"><i class="fas fa-microscope"></i> Tests & Validation</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td>
@@ -525,38 +665,39 @@
             <td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Optimisation & Automatisation</td>
+            <td class="task-label"><i class="fas fa-tachometer-alt"></i> Optimisation & Automatisation</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td class="blue">OPT</td>
             <td></td><td></td><td></td>
           </tr>
           <tr>
-            <td class="task-label">Documentation & Déploiement</td>
+            <td class="task-label"><i class="fas fa-book-open"></i> Documentation & Déploiement</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td class="blue">DEP</td>
           </tr>
           <tr>
-            <td class="task-label">Jalons de déblocage des fonds</td>
-            <td class="milestone">★<br>5K</td>
+            <td class="task-label"><i class="fas fa-flag-checkered"></i> Jalons de déblocage des fonds</td>
+            <td class="milestone">🚀<br>5K</td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td><td></td>
             <td></td><td></td><td></td><td></td><td></td>
-            <td class="milestone">★<br>MVP</td>
+            <td class="milestone">🏆<br>MVP</td>
             <td></td>
           </tr>
         </tbody>
       </table>
+      </div>
       <p>
-        Le planning ci-dessus répartit les activités sur 21 semaines, avec deux jalons financiers indiqués par des étoiles.
+        Le planning ci-dessus répartit les activités sur 21 semaines, avec deux jalons financiers indiqués par des icônes.
       </p>
     </section>
 
     <!-- Détail du Chiffrage -->
     <section class="section">
-      <h2><i class="fas fa-file-invoice-dollar"></i> Détail du Chiffrage</h2>
+      <h2><i class="fas fa-money-bill-wave section-icon"></i> Détail du Chiffrage</h2>
       <p>Voici le détail des coûts affectés à chaque activité (taux journalier : 350 €) :</p>
       <table class="cost-table">
         <thead>
@@ -568,76 +709,88 @@
         </thead>
         <tbody>
           <tr>
-            <td>Kick-off & Analyse</td>
+            <td><i class="fas fa-lightbulb"></i> Kick-off & Analyse</td>
             <td>15</td>
             <td>5 250 €</td>
           </tr>
           <tr>
-            <td>Conception de l'Architecture</td>
+            <td><i class="fas fa-sitemap"></i> Conception de l'Architecture</td>
             <td>10</td>
             <td>3 500 €</td>
           </tr>
           <tr>
-            <td>Module Traitement d'Image</td>
+            <td><i class="fas fa-image"></i> Module Traitement d'Image</td>
             <td>20</td>
             <td>7 000 €</td>
           </tr>
           <tr>
-            <td>Interface 2D Interactive</td>
+            <td><i class="fas fa-desktop"></i> Interface 2D Interactive</td>
             <td>15</td>
             <td>5 250 €</td>
           </tr>
           <tr>
-            <td>Génération & Export 3D</td>
+            <td><i class="fas fa-cubes"></i> Génération & Export 3D</td>
             <td>20</td>
             <td>7 000 €</td>
           </tr>
           <tr>
-            <td>Module Impression 3D</td>
+            <td><i class="fas fa-print"></i> Module Impression 3D</td>
             <td>10</td>
             <td>3 500 €</td>
           </tr>
           <tr>
-            <td>Tests & Validation</td>
+            <td><i class="fas fa-microscope"></i> Tests & Validation</td>
             <td>5</td>
             <td>1 750 €</td>
           </tr>
           <tr>
-            <td>Optimisation & Automatisation</td>
+            <td><i class="fas fa-tachometer-alt"></i> Optimisation & Automatisation</td>
             <td>3</td>
             <td>1 050 €</td>
           </tr>
           <tr>
-            <td>Documentation & Déploiement</td>
+            <td><i class="fas fa-book-open"></i> Documentation & Déploiement</td>
             <td>2</td>
             <td>700 €</td>
           </tr>
-          <tr>
-            <th colspan="2">Total</th>
-            <th>35 000 €</th>
-          </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td><i class="fas fa-calculator"></i> <strong>Total</strong></td>
+            <td>100</td>
+            <td><strong>35 000 €</strong></td>
+          </tr>
+        </tfoot>
       </table>
     </section>
 
     <!-- Synthèse du Chiffrage -->
     <section class="section">
-      <h2><i class="fas fa-calculator"></i> Synthèse du Chiffrage</h2>
+      <h2><i class="fas fa-chart-pie section-icon"></i> Synthèse du Chiffrage</h2>
       <p>
-        Pour engager le projet, un versement initial de 5 000 € est requis.
+        Pour engager le projet, un versement initial de <strong>5 000 €</strong> est requis.
       </p>
       <p>
         Deux options de paiement ensuite:
-        <ul style="list-style: none; margin: 0; padding: 0;">
-          <li style="margin-bottom: 5px;">• Paiement intégral de 30 000 € à la fin du développement avec un déblocage de 10 000€ à la livraison du MVP </li>
-          <li>• Dès le lancement du MVP, un engagement à verser une licence mensuelle de 500 € pendant 5 ans </li>
-        </ul>
-	<p>Dans les deux cas, un contrat de maintenance accompagne ce contrat pour garantir la stabilité du logiciel. </p>
+      </p>
+      <ul style="list-style: none; margin: 0; padding: 0;">
+        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+          <i class="fas fa-hand-holding-usd" style="color: #3498db; margin-right: 10px; font-size: 1.2em;"></i> 
+          Paiement intégral de <strong>30 000 €</strong> à la fin du développement avec un déblocage de <strong>10 000 €</strong> à la livraison du MVP
+        </li>
+        <li style="margin-bottom: 15px; display: flex; align-items: center;">
+          <i class="fas fa-sync-alt" style="color: #2ecc71; margin-right: 10px; font-size: 1.2em;"></i> 
+          Dès le lancement du MVP, un engagement à verser une licence mensuelle de <strong>500 €</strong> pendant 5 ans
+        </li>
+      </ul>
+      <p>
+        <i class="fas fa-tools" style="color: #9b59b6; margin-right: 10px;"></i>
+        Dans les deux cas, un contrat de maintenance accompagne ce contrat pour garantir la stabilité du logiciel.
       </p>
     </section>
   </div>
   <footer>
-    Design by Zpey
+    <p>Design by <strong>Zpey</strong> <i class="fas fa-laptop-code"></i></p>
   </footer>
 </body>
 </html>
